@@ -7,6 +7,7 @@ class MasterMindService
 
   def provide_user_feedback(answer, guess)
     user_guess = guess.split('')
+    p answer
     feedback = []
     #evaluate guess
     # check position
@@ -18,7 +19,6 @@ class MasterMindService
         feedback << WHITE_PEG
       end
     end
-
     feedback
   end
 
@@ -27,15 +27,17 @@ class MasterMindService
   end
 
   def increment_turn(turn)
-    turn + 1 unless turn == 9
+    turn + 1
   end
 
   def generate_code
     code = []
     number_of_colors = COLOR_GENERATOR.length
+    p number_of_colors
     4.times do
-      code << number_of_colors[rand(number_of_colors - 1)]
+      code << COLOR_GENERATOR[rand(number_of_colors - 1)]
     end
+    p code
     code
   end
 

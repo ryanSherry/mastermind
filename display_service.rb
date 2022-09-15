@@ -9,7 +9,7 @@ class DisplayService
       PURPLE: 'P'
     }
 
-  CODE_PICKER_INSTRUCTIONS = 'Please guess what the code is by entering 4 colors like this... RGBY'
+  CODE_PICKER_INSTRUCTIONS = 'Please guess what the code is by entering 4 colors like this... RGBY: '
   CHOICES_TEXT = 'The colors to pick from are:'
   FEEDBACK_TEXT = 'Feedback: '
   WIN = 'You Win!!!'
