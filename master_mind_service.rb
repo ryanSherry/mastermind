@@ -23,7 +23,7 @@ class MasterMindService
   end
 
   def check_for_win(feedback)
-    feedback.count(WHITE_PEG) == 4
+    feedback.count(RED_PEG) == 4
   end
 
   def increment_turn(turn)

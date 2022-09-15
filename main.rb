@@ -2,7 +2,7 @@
 require './display_service'
 require './master_mind_service'
 class Main
-  LOSE = 10
+  LOSE = 9
 
   def play_game(master_mind_service, display_service, turn, play_again, answer)
     if play_again
