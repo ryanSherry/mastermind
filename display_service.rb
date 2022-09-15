@@ -17,6 +17,7 @@ class DisplayService
   LOSE = 'You lose'
   PLAY_AGAIN = 'Would you like to play again?'
   GOODBYE = 'Goodbye for now!'
+  ANSWER = 'The answer is '
 
   def color_reminder
     COLORS.each do |k,v|
@@ -44,7 +45,9 @@ class DisplayService
 
   def display_summary(summary)
     p SUMMARY
-    p summary
+    summary.each do |move|
+      print_summary_item(move)
+    end
   end
 
   def win_message
@@ -57,6 +60,10 @@ class DisplayService
     puts play_again
   end
 
+  def display_answer(answer)
+    puts "#{ANSWER} #{answer}"
+  end
+
   def goodbye
     puts GOODBYE
   end
@@ -67,6 +74,10 @@ class DisplayService
 
   private def play_again
     puts PLAY_AGAIN
+  end
+
+  private def print_summary_item(move)
+    puts "Turn: #{move[:turn]}, Input: #{move[:input]}, Feedback: #{move[:feedback].join()}"
   end
 
 end

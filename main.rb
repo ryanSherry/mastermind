@@ -11,15 +11,16 @@ class Main
       guess = gets.chomp.upcase
       feedback = master_mind_service.provide_user_feedback(answer, guess)
       feedback_summary = master_mind_service.provide_user_summary(feedback_summary, turn, guess, feedback)
-      display_service.display_feedback(feedback)
 
       if master_mind_service.check_for_win(feedback)
         display_service.win_message
+        display_service.display_answer(answer)
         play_again = gets.chomp.upcase
         play_game(master_mind_service, display_service, 1, master_mind_service.play_again(play_again),
                   master_mind_service.generate_code, feedback_summary) unless !play_again
       elsif turn == LOSE
         display_service.lose_message
+        display_service.display_answer(answer)
         play_again = gets.chomp.upcase
         play_game(master_mind_service, display_service, 1,
                   master_mind_service.play_again(play_again), master_mind_service.generate_code, feedback_summary) unless !play_again
