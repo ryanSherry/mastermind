@@ -15,6 +15,7 @@ class DisplayService
   WIN = 'You Win!!!'
   LOSE = 'You lose'
   PLAY_AGAIN = 'Would you like to play again?'
+  GOODBYE = 'Goodbye for now!'
 
   def color_reminder
     COLORS.each do |k,v|
@@ -48,6 +49,9 @@ class DisplayService
   def lose_message
     puts LOSE
     puts play_again
+  end
+  def goodbye
+    puts GOODBYE
   end
 
   private def linebreak

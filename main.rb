@@ -27,7 +27,7 @@ class Main
         # increment turn and repeat for 9 turns or until win
         play_game(master_mind_service, display_service, turn + 1, true, answer)
       end
-      puts 'Goodbye!'
+      puts display_service.goodbye
     end
 
   end

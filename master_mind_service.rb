@@ -7,16 +7,25 @@ class MasterMindService
 
   def provide_user_feedback(answer, guess)
     user_guess = guess.split('')
-    p answer
+    # each time we put a peg in, remove from track_answer. We need to do this first for red and then for white since
+    # one that produces red peg should not also produce a white peg
+    track_answer = answer.clone
     feedback = []
-    #evaluate guess
+    # evaluate guess
     # check position
     # check contains
     user_guess.each_with_index do |user_guess_letter, index|
       if user_guess_letter == answer[index]
         feedback << RED_PEG
-      elsif answer.include? user_guess_letter
+        track_answer[index] = nil
+        p track_answer
+      end
+    end
+    user_guess.each_with_index do |user_guess_letter, index|
+      if track_answer.include?(user_guess_letter)
         feedback << WHITE_PEG
+        index_to_clear = track_answer.find_index(user_guess_letter)
+        track_answer[index_to_clear] = nil
       end
     end
     feedback
