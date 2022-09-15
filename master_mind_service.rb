@@ -30,6 +30,10 @@ class MasterMindService
     feedback
   end
 
+  def provide_user_summary(feedback_summary, turn, user_input, user_feedback)
+    feedback_summary << {turn: turn, input: user_input, feedback: user_feedback}
+  end
+
   def check_for_win(feedback)
     feedback.count(RED_PEG) == 4
   end

@@ -12,6 +12,7 @@ class DisplayService
   CODE_PICKER_INSTRUCTIONS = 'Please guess what the code is by entering 4 colors like this... RGBY: '
   CHOICES_TEXT = 'The colors to pick from are:'
   FEEDBACK_TEXT = 'Feedback: '
+  SUMMARY = 'Summary: '
   WIN = 'You Win!!!'
   LOSE = 'You lose'
   PLAY_AGAIN = 'Would you like to play again?'
@@ -39,6 +40,11 @@ class DisplayService
   def display_feedback(feedback)
     p FEEDBACK_TEXT
     p feedback
+  end
+
+  def display_summary(summary)
+    p SUMMARY
+    p summary
   end
 
   def win_message
