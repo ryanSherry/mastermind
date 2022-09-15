@@ -13,17 +13,19 @@ class Main
       feedback_summary = master_mind_service.provide_user_summary(feedback_summary, turn, guess, feedback)
 
       if master_mind_service.check_for_win(feedback)
-        display_service.win_message
+        display_service.display_summary(feedback_summary)
         display_service.display_answer(answer)
+        display_service.win_message
         play_again = gets.chomp.upcase
         play_game(master_mind_service, display_service, 1, master_mind_service.play_again(play_again),
-                  master_mind_service.generate_code, feedback_summary) unless !play_again
+                  master_mind_service.generate_code, []) unless !play_again
       elsif turn == LOSE
-        display_service.lose_message
+        display_service.display_summary(feedback_summary)
         display_service.display_answer(answer)
+        display_service.lose_message
         play_again = gets.chomp.upcase
         play_game(master_mind_service, display_service, 1,
-                  master_mind_service.play_again(play_again), master_mind_service.generate_code, feedback_summary) unless !play_again
+                  master_mind_service.play_again(play_again), master_mind_service.generate_code, []) unless !play_again
       else
         play_game(master_mind_service, display_service, turn + 1, true, answer, feedback_summary)
       end

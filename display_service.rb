@@ -61,7 +61,7 @@ class DisplayService
   end
 
   def display_answer(answer)
-    puts "#{ANSWER} #{answer}"
+    puts "#{ANSWER} #{answer.join()}"
   end
 
   def goodbye
