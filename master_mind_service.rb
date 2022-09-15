@@ -11,15 +11,14 @@ class MasterMindService
     # one that produces red peg should not also produce a white peg
     track_answer = answer.clone
     feedback = []
-    # evaluate guess
-    # check position
-    # check contains
+
     user_guess.each_with_index do |user_guess_letter, index|
       if user_guess_letter == answer[index]
         feedback << RED_PEG
         track_answer[index] = nil
       end
     end
+
     user_guess.each_with_index do |user_guess_letter, index|
       if track_answer.include?(user_guess_letter)
         feedback << WHITE_PEG
@@ -27,6 +26,7 @@ class MasterMindService
         track_answer[index_to_clear] = nil
       end
     end
+
     feedback
   end
 
