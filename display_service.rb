@@ -50,6 +50,7 @@ class DisplayService
     puts LOSE
     puts play_again
   end
+
   def goodbye
     puts GOODBYE
   end

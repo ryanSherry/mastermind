@@ -18,7 +18,6 @@ class MasterMindService
       if user_guess_letter == answer[index]
         feedback << RED_PEG
         track_answer[index] = nil
-        p track_answer
       end
     end
     user_guess.each_with_index do |user_guess_letter, index|
@@ -42,12 +41,14 @@ class MasterMindService
   def generate_code
     code = []
     number_of_colors = COLOR_GENERATOR.length
-    p number_of_colors
     4.times do
       code << COLOR_GENERATOR[rand(number_of_colors - 1)]
     end
-    p code
     code
+  end
+
+  def play_again(user_response)
+    user_response.upcase.include?('Y')
   end
 
 end
